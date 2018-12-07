@@ -38,10 +38,10 @@ INIT phonebook to array
 	
 function (search){
 	var phonebook = []
-	phonebook.find(function(entry) {
-  
-	return entry === search;	
-	
-});
+	phonebook.foreach(function(entry) {
+
+	if (entry === search){  
+	return entry;
+	}}
 }
 
