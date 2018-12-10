@@ -1,0 +1,115 @@
+1.In your own words, explain what clean code is and why it is important.
+
+A: Clean code is code that is easy to understand visual. It's important because it allows other developers other to understand what those random variables mean and what functions do without having to take a considerable amount of time to think about what the author wrote.
+
+2.Read this article about Toyota and their use of bad code. Although you may not yet understand all of the topics discussed, think about another commonly used object that relies on computers and explain what would happen if the code was not created to an acceptable standard.
+
+A: Traffic light are used everywhere and if they were to held to a standard they would cause traffic jams and crashes.
+
+3.Would you consider the following to be clean code? Explain why or why not. If not, refactor the code.
+
+A:No It's not clean code due to not knowing what x, z, and y are without the help of comments
+
+FUNCTION do(temp, y) 
+IF y = "Fahrenheit" THEN
+	SET newtemp to (temp-32) * (5/9)
+	PRINT newtemp   
+ELSE IF y = "celsius" THEN
+	SET newtemp to temp * 1.8000 + 32.00
+	PRINT newtemp 
+END IF
+END FUNCTION
+
+4.Would you consider the following to be clean code? Explain why or why not. If not, refactor the code.
+
+A: Yes I would due to how it is self-documenting making it easy to tell its about calculating percentages.
+
+5.Using pseudocode, refactor the code for the following examples using the principles you have learned in this checkpoint.
+
+A.The equation to get the total is being repeated needlessly repeated.
+
+FUNCTION checkOutCustomer(subTotal, discountRate, paymentType)
+	SET Total to subTotal * discountRate + (subTotal * tax)
+   PRINT "Your total due is: " + Total
+   IF paymentType = 'CASH' THEN
+       CALL getPayment RETURNING amount
+       PRINT "Change due: " + amount - Total
+   ELSE IF paymentType = 'CREDIT CARD' THEN
+       CALL getPayment RETURNING amount
+       PRINT "Your credit card has been charged: " + Total
+   END IF
+END FUNCTION
+
+B.Not all the If needed to be nested within each other
+
+FUNCTION checkoutBook(book, guest)
+ IF guest.accountActive AND NOT(guest.hasOverdueBooks) AND guest.outstandingFees = 0 THEN
+           APPEND book to guest.books
+           SET book.status to "Checked Out"
+           PRINT "Your books have been issued."
+ ELSE
+     PRINT "Unable to check out book."
+ END IF
+END FUNCTION
+
+C. creditCardOffer and checkstatus didn't need to be in the bankaccount class
+
+CLASS BankAccount
+
+ FUNCTION displayBalance
+    PRINT balance
+ END FUNCTION
+
+ FUNCTION deposit(amount)
+    SET balance to balance + amount
+ END FUNCTION
+
+ FUNCTION withdraw(amount)
+     IF balance > amount THEN
+       SET balance to balance - amount
+     END
+ END FUNCTION
+	END CLASS
+CLASS checkingAccount
+ FUNCTION creditCardOffer
+     IF NOT(customer.hasCreditCard) THEN
+         CALL offerCreditCard
+     END
+ END FUNCTION
+
+ FUNCTION checkStatus
+     IF NOT(customer.hasCheckingAccount) THEN
+         CALL offerCheckingAccount
+     END
+ END FUNCTION
+
+ ....
+ ....
+ ....
+END CLASS
+
+6.Square Given an array of integers, find out whether the sum of the integers is a perfect square. If it is a perfect square, return the square root, otherwise return the sum.
+
+function checkSquareRoot(array){
+	var total = 0;
+	array.map((number)=> total = total + number);
+	if (Math.sqrt(total) % 1 === 0){
+      return Math.sqrt(total);
+    }else{
+      return total;
+    }
+}
+
+7. Given an array of integers, find out whether the array contains any duplicate elements. The function should return true if any value appears at least twice in the array, and false if every element is distinct.
+
+A: Couldn't think of any better ways to have num1 and num2 easier to understand 
+function findDuplicate(array) {
+  for(var num1 =0; num1<= array.length; num1++) {
+    for(var num2 =num1; num2<= array.length; num2++) {
+      if(num1 !=num2 && array[num1] == array[num2]) 
+        {return true;}
+    }
+  }
+  return false;
+}
+
