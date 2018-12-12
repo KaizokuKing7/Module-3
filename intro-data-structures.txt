@@ -1,0 +1,44 @@
+1.
+
+var line = ["Vivian", "Ava", "Josh", "Patrick", "Mike"];
+
+
+class Line {
+	constructor(array){
+		this.waitLine = array;
+	}
+	
+	insert(newUser){
+		this.waitLine.push(newUser);
+	}
+	find(user){
+		this.waitLine.findIndex((lineAtendee)=>{
+			 return lineAtendee == user;
+			 
+		})
+	}
+	cutLine(user, newUser){
+		this.waitLine.splice(this.waitLine.indexOf(user), 0,newUser);
+		return this.waitLine;
+	}
+	leaveLine(user){
+		this.waitLine.splice(this.waitLine.indexOf(user),1)
+	}
+	
+	
+}
+var newLine. = new Line(line)
+B. newLine.insert(newUser) 
+C. newLine.find('Josh') 
+D. newLine.find('Emily') will return -1 
+E. newLine.cutLine('Ava','Melissa')
+F. newLine.leaveLine('Patrick)
+
+2. Provide another real-world example that you can model using a data structure.
+
+A: A Libraries catalog of books  
+[[science fiction, ...],[fiction, ...],[History, ...] ]
+
+3. How would your data structure allow developers to access and manipulate the data?
+
+A: It would allow reader to quikly find the book they need alot of searching.
