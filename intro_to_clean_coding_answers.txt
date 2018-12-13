@@ -10,13 +10,13 @@ A: Traffic light are used everywhere and if they were to held to a standard they
 
 A:No It's not clean code due to not knowing what x, z, and y are without the help of comments
 
-FUNCTION do(temp, y) 
-IF y = "Fahrenheit" THEN
-	SET newtemp to (temp-32) * (5/9)
-	PRINT newtemp   
-ELSE IF y = "celsius" THEN
-	SET newtemp to temp * 1.8000 + 32.00
-	PRINT newtemp 
+FUNCTION changeTemperatureType(temperature, temperatureScale) 
+IF temperatureScale = "Fahrenheit" THEN
+	SET newtemperature to (temperature-32) * (5/9)
+	PRINT newtemperature   
+ELSE IF temperatureScale = "celsius" THEN
+	SET newtemperature to temperature * 1.8000 + 32.00
+	PRINT newtemperature 
 END IF
 END FUNCTION
 
@@ -24,9 +24,19 @@ END FUNCTION
 
 A: Yes I would due to how it is self-documenting making it easy to tell its about calculating percentages.
 
+FUNCTION calcPercent(sum, total)
+	IF NOT(total = 0) THEN
+		SET percentage to sum / total * 100
+	ELSE
+		PRINT "Sorry, cannot divide by 0"
+	END IF
+
+	PRINT percentage
+END FUNCTION
+
 5.Using pseudocode, refactor the code for the following examples using the principles you have learned in this checkpoint.
 
-A.The equation to get the total is being repeated needlessly repeated.
+A.The equation to get the total is being needlessly repeated.
 
 FUNCTION checkOutCustomer(subTotal, discountRate, paymentType)
 	SET Total to subTotal * discountRate + (subTotal * tax)
@@ -93,11 +103,13 @@ END CLASS
 function checkSquareRoot(array){
 	var total = 0;
 	array.map((number)=> total = total + number);
+		
 	if (Math.sqrt(total) % 1 === 0){
-      return Math.sqrt(total);
-    }else{
-      return total;
-    }
+		return Math.sqrt(total);
+	}
+	else{
+		return total;
+	}
 }
 
 7. Given an array of integers, find out whether the array contains any duplicate elements. The function should return true if any value appears at least twice in the array, and false if every element is distinct.
