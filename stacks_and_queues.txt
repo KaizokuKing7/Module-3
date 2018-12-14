@@ -1,0 +1,60 @@
+1. What is the main difference between a stack and a queue?
+
+A: The main diffrence between stack and queue is that stack is Last in First out,
+while queue is First in First out.
+
+2. What are the similarities between stacks and queues?
+
+A: Neither are allowed to pick elements from the middle of the data structure.
+
+3.Imagine you are an engineer tasked with implementing the UNDO and REDO options in a 
+word processor such as Microsoft Word. Which data structure would you use for each option and why?
+
+A: I would use LIFO for both to keep the changes to the document in order in the way they were written. If it were FIFO they would skip all changes and give the first change made the the page 
+
+Programming Questions
+
+1.Given a string, reverse it using a stack. For example, the string "Bloc!" should be converted to "!colB".
+	
+function reverse(string){
+	var stack = [];
+    var newString = [];
+    var array = string.split('');
+	array.forEach((char) =>{
+		stack.push(char)
+	});
+	for(var i=0 ; i < string.length;i++){
+		newString.push(stack.pop())
+	}
+	return newString.join('')
+}
+console.log(reverse('Bloc!'))
+
+2. Implement the pop method of a stack using one queue. Make a FIFO data structure mirror the functionality of a LIFO data structure. Since the internal list is not the same as defined in the checkpoint, it may help to rewrite the pseudocode first.
+
+class Queue {
+	constructor(){
+		this.queue = [1,2,3,4,5,6];
+	}
+	
+	queuePop(){
+		var temp = this.queue[0];
+        var newQueue =[];
+		for (var i =1;i < this.queue.length;i++){
+			newQueue.push(this.queue[i]);
+		}
+      this.queue = newQueue;
+      return temp;
+	}
+	
+
+	enqueue(element){
+		this.queue.push(element)
+	}
+	
+	dequeue(){
+		var temp = this.queue.slice(1,this.queue.length);
+		this.queue.shift();
+	}
+}
+
