@@ -38,12 +38,7 @@ class Queue {
 	}
 	
 	queuePop(){
-		var temp = this.queue[0];
-        var newQueue =[];
-		for (var i =1;i < this.queue.length;i++){
-			newQueue.push(this.queue[i]);
-		}
-      this.queue = newQueue;
+      var temp = this.queue.splice(this.queue.length -1,1);
       return temp;
 	}
 	
@@ -53,7 +48,6 @@ class Queue {
 	}
 	
 	dequeue(){
-		var temp = this.queue.slice(1,this.queue.length);
 		this.queue.shift();
 	}
 }
