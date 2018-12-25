@@ -1,0 +1,170 @@
+1. What is a binary tree and what makes it unique to other trees?
+
+A: A binary tree consist of nodes with two child nodes. unlike other trees binary trees can only have two immediate children. 
+
+2. What is a heuristic?
+
+A: A method to solve a problem unopamoliy for speed.
+
+3. What is another problem besides the shortest-path problem that requires the use of heuristics?
+
+A: Problems involving searching require the use of heuristics to quickly solve the issue.
+
+4. What is the difference between a depth-first search and a breadth-first search?
+
+A: depth-first search is done a single branch at a time while breadth-first is not as its done to every branch at once.
+
+5. Explain in your own words what an undirected, a-cyclic, unweighted graph is.
+
+A: Being undirected meaning that the connection between them points in either direction. a-cyclic meaning it doesn't loop on itself.  unweighted meaning that the links between nodes themselves have no other meaning that to connect nodes.
+
+6. What kind of graph is a binary search tree?
+
+A: Directed, A-cyclic,Unweighted.
+
+Programming Questions
+
+1.Given a Binary Search Tree and a value, write a function that checks to see whether the value exists within the tree.
+
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+class Tree {
+  constructor() {
+    this.root = null;
+  }
+  add(value) {
+    var current = this.root;
+    var node = new Node(value);
+    if (current === null){
+      this.root = node;
+    }
+    else{
+      this.findSpace(node,current);
+    }
+  }
+
+  findSpace(node,current){
+
+    if(node.value < current.value){
+      if(current.left === null){
+        current.left = node;
+      }
+      else{
+        current = current.left;
+        this.findSpace(node,current);
+      }
+      
+    }
+    else if(node.value > current.value){
+      if(current.right === null){
+        current.right = node;
+      }
+      else{
+        current = current.right;
+        this.findSpace(node,current);
+      }
+    }
+  }
+
+
+}
+
+function find(tree, element){
+  var current = tree.root;
+  if(current === null){
+    console.log('doesnt exist');
+  }
+  else{
+    return innerFind(current,element);
+     
+  }
+  function innerFind(current,element){
+    if(current !== null){
+      if (element < current.value){
+          current = current.left;
+          innerFind(current,element);
+      }else if(element > current.value && current !== null){
+          current = current.right;
+          innerFind(current,element);
+      
+      }else{
+        console.log(`${element} does exist within the tree.`);
+      }
+    }
+    else{
+      console.log(`${element} does not exist within the tree.`);
+    }
+}
+
+}
+var testTree = new Tree();
+
+testTree.add(8);
+testTree.add(10);
+testTree.add(3);
+testTree.add(6);
+testTree.add(1);
+testTree.add(4);
+testTree.add(7);
+testTree.add(14);
+testTree.add(13);
+
+find(testTree,10);
+find(testTree,23);
+
+
+2.Given a Binary Search Tree and two nodes, n1 and n2, write a function that finds the distance between the two nodes.
+
+Used with the tree above.
+
+function findDistance(tree,n1,n2){
+  var LCA= findLca(tree.root,n1,n2);
+  var total = distance(LCA,n1) + distance(LCA,n2);
+  console.log(total);
+ 
+  function findLca(current,n1,n2){
+    if (n1 < current.value && n2 < current.value){
+      current = current.left;
+      return findLca(current,n1,n2);
+    }
+    else if(n1 > current.value && n2 > current.value){
+      current = current.right
+      return findLca(current,n1,n2);
+    }
+    else{
+      return current;
+    }
+  }
+  function distance(current,node){
+    var i = 0;
+    while(node != current.value){
+      if (node < current.value){
+        i++;
+        current = current.left;
+      }else if (node > current.value){
+        i++;
+        current = current.right;
+      }
+    }
+    return i;
+  }
+  
+}
+
+
+findDistance(testTree,4,10)
+findDistance(testTree,8,10)
+findDistance(testTree,1,12)
+
+
+
+
+
+
+
