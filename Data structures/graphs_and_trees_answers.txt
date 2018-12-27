@@ -4,7 +4,7 @@ A: A binary tree consist of nodes with two child nodes. unlike other trees binar
 
 2. What is a heuristic?
 
-A: A method to solve a problem unopamoliy for speed.
+A: A method to solve a problem quickly done by finding a approximate solution in exchange for accuracy.
 
 3. What is another problem besides the shortest-path problem that requires the use of heuristics?
 
