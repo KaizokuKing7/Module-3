@@ -1,0 +1,43 @@
+1. Write pseudocode for bubble sort.
+
+
+while swapped
+	set swapped = false
+	for i < last element index
+		if element1 > element2 then
+			swap element1 index with element2 index
+			set swapped = true
+		end if
+	end for 
+end while
+
+2. Write pseudocode for quicksort.
+
+function quicksort(collection)
+
+set pivot to last element
+if collection length <= 1 
+return
+end if
+for each element in collection
+	if element > pivot then
+		move element into right partition
+	else 
+		move element into left partition
+	end if
+end for
+	quicksort left partition
+	quicksort right partition
+	join left partition and pivot and right partition
+end function
+
+
+	
+3. We talked about time complexity in a previous checkpoint, and how to get an idea of the efficiency of an algorithm. After looking at the pseudocode for the above sorting methods, identify why merge sort and quick sort are much more efficient than the others. Walking through each algorithm with a few sample collections may help.
+
+A: They both are really good at handling large collections rather than due to not having to compare every element to every other element. By instead using a couple elements to compare against the rest.
+
+
+4. All of the sorts addressed in this checkpoint are known as comparison sorts. Research bucket sort and explain how it works. What is the ideal input for bucket sort?
+
+A: Bucket sort works by separating all elements into sub-arrays. Each put into a sub-array that meets its conditions. Which in turn in sorted further until no more sorting can be done and is joined back into one array. The ideal input for bucket sort is numerical due to being able to easily put all numbers from one to ten into a bucket then the same with twenties and thirties.  
