@@ -1,0 +1,50 @@
+1.Using proper pseudo-code, describe the following primitive algorithms:
+
+function makeCoffee
+IF coffee machine not empty THEN
+	replace filter
+	empty coffee pot
+	replace coffee grounds
+ELSE 
+	place filter
+	add water
+	add coffee ground = 1 cup 
+END If
+set coffee machine on to true
+end function
+
+-Washing dishes
+
+Init dirtyDishes to amount of dirty dishes
+
+WHILE dirtyDishes are not empty THEN
+	remove dish from dirtyDishes
+	add soap to dish
+	wash dish
+	rinse dish
+	dry dish
+	put dish into clean dishes 
+END WHILE
+
+- 
+
+function cleaning room
+	while  room != clean 
+		search room for trash then
+		add trash to trashBag
+	end while
+	remove trashBag from room 
+	return done
+end function
+
+2. As with the knot algorithm, there may be more than one way to solve the problem. It is essential to try to pick the best algorithm for a situation. Name three companies who created an algorithm that made them successful, e.g., Google's search algorithm. It doesn't need to be a tech example (such as a recipe or manufacturing a product). Google's algorithm produces more relevant results than other search engines; what about each of your cases make them stand out?
+
+Starbucks	- Their algorithm involved finding and using the perfect amount of coffee ground compared to water and other ingredients to make a extremely popular drink that always follows that.
+
+Mcdonalds	- McDonalds was one of the first place to create a algorithm to make food quick with sacrificing taste.  It includes everything from kitchen layout to optimal cook time for everything leading the to a extremely popular company.
+
+Amazon		- They have algorithm to ship anywhere quickly if need which made them the most popular online stores around.
+
+3. Hypothesize about what constitutes an efficient algorithm versus an inefficient algorithm.
+
+A: A efficient algorithm involves having clear steps that doesn't needlessly repeat its self or add unnecessary steps allowing for quick and error free processing. They must also not be overly straining on the the what ever is running the algorithm due to  if incompatible with each other it may become worst than it did then another system running it.  
